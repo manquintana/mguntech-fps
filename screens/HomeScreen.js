@@ -2,14 +2,12 @@ import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Alert,
-  Divider
+  Linking
 } from 'react-native';
 
 
@@ -18,23 +16,8 @@ export default function HomeScreen() {
     <View style={styles.container}>
 
       <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
+        contentContainerStyle={styles.fiftyPixelMargins}>
         
-        {/* <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View> */}
-
-        <View style={styles.getStartedContainer}>
-          {/* <DevelopmentModeNotice /> */}
-
           <Text style={styles.tituloSeccion}>
             Seleccione modo
           </Text>
@@ -55,19 +38,26 @@ export default function HomeScreen() {
             <Text style={styles.bigButtonsText}>TORNEO</Text>
           </TouchableOpacity>
 
-        </View>
       </ScrollView>
+      
+      <View style={styles.bottomView}>
+        <Text style={styles.whiteText}>FPS | v1.0.0-alpha</Text>
+        <Text style={styles.whiteText}
+          onPress={visitarWeb}>mguntech.com</Text>
+      </View>
+
     </View>
   );
 }
 
 HomeScreen.navigationOptions = {
   headerTitle: (
+    
     <View style={{ 
                 flex: 1, 
                 justifyContent: 'center',
                 alignItems:'center'
-                }}>
+    }}>
       <Image 
             resizeMode="contain"
             style={{width:80, height:80}}
@@ -90,10 +80,8 @@ function startTournamentMode(){
   alert('iniciando torneo');
 }
 
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
+function visitarWeb() {
+  Linking.openURL('https://google.com');
 }
 
 function handleHelpPress() {
@@ -101,6 +89,8 @@ function handleHelpPress() {
     'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -132,41 +122,28 @@ const styles = StyleSheet.create({
     lineHeight:50,
     color: '#fff'
   },
-  
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 0,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 0,
-    paddingTop:30,
-    marginBottom: 20,
-    backgroundColor:'#071B40'
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
+  fiftyPixelMargins: {
     alignItems: 'center',
     marginHorizontal: 50,
-    marginTop:30
+    marginTop:30,
   },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
+  whiteText: {
+    fontSize:14,
+    color:'#fff',
+    textAlign:'center',
+    marginBottom: 0
   },
+  bottomView: {
+    width: '100%',
+    height:57,/* 
+    backgroundColor: '#EE5407', */
+    justifyContent: 'center',
+    paddingBottom:20,
+    alignItems: 'center',
+    position: 'relative', //Here is the trick
+    bottom: 0, //Here is the trick
+  },
+
   
  /*  tabBarInfoContainer: {
     position: 'absolute',
@@ -188,18 +165,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#071B40',
     paddingVertical: 20,
   }, */
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  
 });
