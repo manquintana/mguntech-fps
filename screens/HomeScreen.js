@@ -7,12 +7,12 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Linking
+  Linking,
+  Button
 } from 'react-native';
-import { NavigationEvents } from 'react-navigation';
-import { setRecoveryProps } from 'expo/build/ErrorRecovery/ErrorRecovery';
 
 
+import NavigationService from '../navigation/NavigationService';
 
 
 export default function HomeScreen() {
@@ -28,7 +28,7 @@ export default function HomeScreen() {
   
           <TouchableOpacity
             style={styles.bigButtons}
-            /* onPress={() => props }  */
+            /* onPress={() => this.props.navigation.navigate('Practica')} */
             onPress={startPracticeMode}
           >
             <Text style={styles.bigButtonsText}>PRÁCTICA</Text>
@@ -55,6 +55,7 @@ export default function HomeScreen() {
 }
 
 HomeScreen.navigationOptions = {
+  
   headerTitle: (
     
     <View style={{ 
@@ -76,23 +77,20 @@ HomeScreen.navigationOptions = {
 };
 
 function startPracticeMode(){
-  alert('iniciando practica');
-  
+ /*  alert('iniciando practica'); */
+  NavigationService.navigate('Practice');
 }
 
 function startTournamentMode(){
-  alert('iniciando torneo');
+  /* alert('iniciando torneo'); */
+  NavigationService.navigate('Torneo');
 }
 
 function visitarWeb() {
   Linking.openURL('https://google.com');
 }
 
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
+
 
 
 

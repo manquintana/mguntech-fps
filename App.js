@@ -7,6 +7,31 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import PracticeScreen from './screens/practiceMode/PracticeScreen';
+import TorneoScreen from './screens/tournamentMode/TournamentScreen';
+import NavigationService from './navigation/NavigationService';
+import HomeScreen from './screens/HomeScreen';
+import ExitScreen from './screens/ExitScreen';
+import LanguageScreen from './screens/LanguagesScreen';
+import InstructionScreen from './screens/InstructionScreen';
+
+
+const TopLevelNavigator = createStackNavigator({
+  Home: HomeScreen,
+  Practice: PracticeScreen,
+  Torneo: TorneoScreen,
+  Exit: ExitScreen,
+  Languages: LanguageScreen,
+  Instrucions: InstructionScreen,
+},
+/* {
+  initialRouteName: Home,
+} */
+);
+const AppContainer = createAppContainer(TopLevelNavigator);
+
+
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
@@ -22,7 +47,10 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
+        {/* <AppNavigator /> */}
+        <AppContainer ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}/>
         
       </View>
     );
@@ -54,6 +82,9 @@ function handleLoadingError(error) {
 function handleFinishLoading(setLoadingComplete) {
   setLoadingComplete(true);
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
