@@ -9,6 +9,10 @@ import {
   View,
   Linking
 } from 'react-native';
+import { NavigationEvents } from 'react-navigation';
+import { setRecoveryProps } from 'expo/build/ErrorRecovery/ErrorRecovery';
+
+
 
 
 export default function HomeScreen() {
@@ -24,7 +28,7 @@ export default function HomeScreen() {
   
           <TouchableOpacity
             style={styles.bigButtons}
-            /* onPress={() => {}}  */
+            /* onPress={() => props }  */
             onPress={startPracticeMode}
           >
             <Text style={styles.bigButtonsText}>PRÁCTICA</Text>
