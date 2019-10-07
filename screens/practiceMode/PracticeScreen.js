@@ -8,6 +8,7 @@ import {
     Image } 
 from 'react-native';
 
+
 export default class PracticeScreen extends Component {
   constructor(props) {
     super(props);
@@ -46,7 +47,14 @@ export default class PracticeScreen extends Component {
     );
   }
 }
-
+PracticeScreen.navigationOptions = {
+  title: 'FPS - Modo Práctica',
+  headerStyle: {
+    backgroundColor: '#071B40',
+    height:80
+  },
+  headerTintColor: '#fff',
+};
 /* PracticeScreen.navigationOptions = {
     headerTitle: (
       <View style={{ 

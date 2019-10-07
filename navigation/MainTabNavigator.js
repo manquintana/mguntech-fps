@@ -8,6 +8,7 @@ import InstructionScreen from '../screens/InstructionScreen';
 import LanguagesScreen from '../screens/LanguagesScreen';
 import ExitScreen from '../screens/ExitScreen';
 
+
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
@@ -125,6 +126,8 @@ const tabNavigator = createBottomTabNavigator(
 
 
 tabNavigator.path = '';
+
+
 
 
 export default tabNavigator;
