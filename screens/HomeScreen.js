@@ -13,7 +13,7 @@ import {
 
 
 import NavigationService from '../navigation/NavigationService';
-
+import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   return (
@@ -28,7 +28,6 @@ export default function HomeScreen() {
   
           <TouchableOpacity
             style={styles.bigButtons}
-            /* onPress={() => this.props.navigation.navigate('Practica')} */
             onPress={startPracticeMode}
           >
             <Text style={styles.bigButtonsText}>PRÁCTICA</Text>
@@ -36,7 +35,6 @@ export default function HomeScreen() {
           
           <TouchableOpacity
             style={styles.bigButtons}
-            /* onPress={() => {}}  */
             onPress={startTournamentMode}
           >
             <Text style={styles.bigButtonsText}>TORNEO</Text>
@@ -57,17 +55,29 @@ export default function HomeScreen() {
 HomeScreen.navigationOptions = {
   
   headerTitle: (
-    
-    <View style={{ 
-                flex: 1, 
-                justifyContent: 'center',
-                alignItems:'center'
-    }}>
-      <Image 
+    <View style={{flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',}}>
+        
+        <View style={{flex: 1}}>
+          
+        </View>
+        
+        <View style={{flex: 1,alignItems: 'center'}}>
+          <Image 
             resizeMode="contain"
             style={{width:80, height:80}}
             source={require('../assets/images/robot-dev.png')}/>
-    </View>
+        </View>
+        
+        <View style={{flex:1, alignItems:'flex-end'}}>
+          <Ionicons name="md-menu" size={32} color="#fff" style={{marginRight:30}}/>
+        </View>
+  </View>
+
+    
+
   ),
   headerStyle: {
     backgroundColor: '#071B40',
@@ -89,9 +99,6 @@ function startTournamentMode(){
 function visitarWeb() {
   Linking.openURL('https://google.com');
 }
-
-
-
 
 
 const styles = StyleSheet.create({
@@ -145,27 +152,5 @@ const styles = StyleSheet.create({
     position: 'relative', //Here is the trick
     bottom: 0, //Here is the trick
   },
-
-  
- /*  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#071B40',
-    paddingVertical: 20,
-  }, */
   
 });

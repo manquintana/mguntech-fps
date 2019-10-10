@@ -23,7 +23,7 @@ const TopLevelNavigator = createStackNavigator({
   Torneo: TorneoScreen,
   Exit: ExitScreen,
   Languages: LanguageScreen,
-  Instrucions: InstructionScreen,
+  Instructions: InstructionScreen,
 },
 /* {
   initialRouteName: Home,
