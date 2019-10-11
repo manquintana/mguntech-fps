@@ -72,7 +72,8 @@ HomeScreen.navigationOptions = {
         </View>
         
         <View style={{flex:1, alignItems:'flex-end'}}>
-          <Ionicons name="md-menu" size={32} color="#fff" style={{marginRight:30}}/>
+          <Ionicons name="md-menu" size={32} color="#fff" style={{marginRight:30}}
+          onPress={abrirMenu}/>
         </View>
   </View>
 
@@ -94,6 +95,10 @@ function startPracticeMode(){
 function startTournamentMode(){
   /* alert('iniciando torneo'); */
   NavigationService.navigate('Torneo');
+}
+
+function abrirMenu(){
+  NavigationService.navigate('Menu');
 }
 
 function visitarWeb() {
