@@ -15,7 +15,7 @@ import HomeScreen from './screens/HomeScreen';
 import ExitScreen from './screens/ExitScreen';
 import LanguageScreen from './screens/LanguagesScreen';
 import InstructionScreen from './screens/InstructionScreen';
-
+import MenuScreen from './screens/MenuScreen';
 
 const TopLevelNavigator = createStackNavigator({
   Home: HomeScreen,
@@ -24,6 +24,7 @@ const TopLevelNavigator = createStackNavigator({
   Exit: ExitScreen,
   Languages: LanguageScreen,
   Instructions: InstructionScreen,
+  Menu: MenuScreen,
 },
 /* {
   initialRouteName: Home,
