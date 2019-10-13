@@ -1,4 +1,4 @@
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import {
     View, 
     Text,
@@ -12,12 +12,104 @@ from 'react-native';
 export default class PracticeScreen extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
+      inicio:1,
+      fourSec:4,
+      boton:true
     };
   }
 
+  startPractice= ()  => {
+    var base=10;
+    var numero = Math.floor(Math.random()*10)+1 + base; //numero entre 11 y 20
+    this.setState(
+      {
+        inicio:numero,
+        boton:false
+      }
+    ),
+    this.startTimer()
+  }
+
+  startTimer = () => {
+  this.clockCall = setInterval(() => {
+    this.decrementInicio();
+  }, 1000);
+  }
+  decrementInicio = () => {  
+    if(this.state.inicio == 1){
+      clearInterval(this.clockCall);
+      this.start4Sec();
+      //alert("inicio");
+    } 
+    else{
+      this.setState((prevstate) => ({ inicio: prevstate.inicio-1 }));
+    }
+  };
+
+
+  start4Sec = () => {
+    this.clockCall = setInterval(() => {
+      this.count4Sec();
+    }, 1000);
+  }
+  count4Sec = () => {  
+    if(this.state.fourSec == 1){
+      clearInterval(this.clockCall);
+      alert("fin");
+      this.setState({
+        boton:true,
+        fourSec:4,
+        inicio:1
+      })
+    } 
+    else{
+      this.setState((prevstate) => ({ fourSec: prevstate.fourSec-1 }));
+    }
+  };
+
+
+
   render() {
-    return (
+
+    if (this.state.boton){
+      return (
+        <View style={styles.container}>
+            <ScrollView
+            style={styles.container}
+            contentContainerStyle={styles.contentContainer}>
+            <View style={styles.getStartedContainer}>
+                <Text style={styles.tituloSeccion}>
+                    Modo práctica
+                </Text>
+
+                <Text style={styles.whiteText}>
+                    ¿Está listo?
+                </Text>
+                
+                 <TouchableOpacity
+                style={styles.extraBigButtons}
+                onPress={this.startPractice}
+                >
+                    <Text style={styles.extraBigButtonsText}>
+                        LISTO
+                    </Text>
+                </TouchableOpacity>
+
+                <Text style={{color:'#fff'}}>
+                  inicio: { this.state.inicio } / / 
+                  4sec: { this.state.fourSec }
+                </Text>
+                
+                
+            </View>
+            </ScrollView>
+        </View>
+    );
+    }
+    else{
+      return (
         <View style={styles.container}>
             <ScrollView
             style={styles.container}
@@ -32,19 +124,27 @@ export default class PracticeScreen extends Component {
                 </Text>
                 
                 <TouchableOpacity
-                style={styles.extraBigButtons}
-                /* onPress={() => {}}  */
-                /* onPress={} */
+                disabled
+                style={styles.extraBigButtonsDisabled}
+                onPress={this.startPractice}
                 >
-                    <Text style={styles.extraBigButtonsText}>
-                        LISTO
+                    <Text style={styles.extraBigButtonsTextDisabled}>
+                      LISTO
                     </Text>
                 </TouchableOpacity>
+
+                <Text style={{color:'#fff'}}>
+                  inicio: { this.state.inicio }  / / 
+                  4sec: { this.state.fourSec }
+                </Text>
+                
                 
             </View>
             </ScrollView>
         </View>
-    );
+      )
+    }
+    
   }
 }
 PracticeScreen.navigationOptions = {
@@ -55,25 +155,6 @@ PracticeScreen.navigationOptions = {
   },
   headerTintColor: '#fff',
 };
-/* PracticeScreen.navigationOptions = {
-    headerTitle: (
-      <View style={{ 
-                  flex: 1, 
-                  justifyContent: 'center',
-                  alignItems:'center'
-                  }}>
-        <Image 
-              resizeMode="contain"
-              style={{width:80, height:80}}
-              source={require('../../assets/images/robot-dev.png')}/>
-      </View>
-    ),
-    headerStyle: {
-      backgroundColor: '#071B40',
-      height:80
-    },
-    headerTintColor: '#fff'
-  }; */
 
 
 const styles = StyleSheet.create({
@@ -99,14 +180,34 @@ const styles = StyleSheet.create({
       height:300,
       marginTop:30,
       marginBottom:30,
-      borderRadius:300
+      borderRadius:300,
+      /* borderRightColor:'#fff',
+      borderRightWidth:4,
+      borderBottomColor:'#fff',
+      borderBottomWidth:4 */
     },
+    
     extraBigButtonsText:{
       fontSize: 66,
       textAlign:'center',
       textAlignVertical:'center',
       lineHeight:300,
       color: '#fff'
+    },
+    extraBigButtonsDisabled:{
+      backgroundColor:'#444',
+      width:300,
+      height:300,
+      marginTop:30,
+      marginBottom:30,
+      borderRadius:300
+    },
+    extraBigButtonsTextDisabled:{
+      fontSize: 66,
+      textAlign:'center',
+      textAlignVertical:'center',
+      lineHeight:300,
+      color: '#555'
     },
     whiteText: {
         fontSize:18,
@@ -148,27 +249,6 @@ const styles = StyleSheet.create({
       borderRadius: 3,
       paddingHorizontal: 4,
     },
-    
-   /*  tabBarInfoContainer: {
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      ...Platform.select({
-        ios: {
-          shadowColor: 'black',
-          shadowOffset: { width: 0, height: -3 },
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 20,
-        },
-      }),
-      alignItems: 'center',
-      backgroundColor: '#071B40',
-      paddingVertical: 20,
-    }, */
     navigationFilename: {
       marginTop: 5,
     },
@@ -183,4 +263,4 @@ const styles = StyleSheet.create({
       fontSize: 14,
       color: '#2e78b7',
     },
-  });
+});
