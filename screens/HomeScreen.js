@@ -68,7 +68,7 @@ HomeScreen.navigationOptions = {
           <Image 
             resizeMode="contain"
             style={{width:250, height:100}}
-            source={require('../assets/images/logoHome.png')}/>
+            source={require('../assets/images/logoHome2.png')}/>
         </View>
         
         <View style={{flex:1, alignItems:'flex-end'}}>
