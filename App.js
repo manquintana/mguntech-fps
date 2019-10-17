@@ -17,6 +17,9 @@ import LanguageScreen from './screens/LanguagesScreen';
 import InstructionScreen from './screens/InstructionScreen';
 import MenuScreen from './screens/MenuScreen';
 
+import soundLibrary from './constants/SoundLibrary';
+import Player from './components/Player';
+
 const TopLevelNavigator = createStackNavigator({
   Home: HomeScreen,
   Practice: PracticeScreen,
@@ -30,16 +33,20 @@ const TopLevelNavigator = createStackNavigator({
   initialRouteName: Home,
 } */
 );
+
+
 const AppContainer = createAppContainer(TopLevelNavigator);
 
-
 export default function App(props) {
-  const [isLoadingComplete, setLoadingComplete] = useState(false);
 
-  if (!isLoadingComplete && !props.skipLoadingScreen) {
+  const [isLoadingComplete, setLoadingComplete] = useState(false);
+  
+
+    if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (
       <AppLoading
         startAsync={loadResourcesAsync}
+        /* startAsync={this.loadAssets} */
         onError={handleLoadingError}
         onFinish={() => handleFinishLoading(setLoadingComplete)}
       />
@@ -48,17 +55,18 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        {/* <AppNavigator /> */}
         <AppContainer ref={navigatorRef => {
           NavigationService.setTopLevelNavigator(navigatorRef);
         }}/>
-        
       </View>
     );
   }
 }
 
+
+
 async function loadResourcesAsync() {
+  const sounds = Player.load(soundLibrary);
   await Promise.all([
     Asset.loadAsync([
       require('./assets/images/robot-dev.png'),
@@ -69,8 +77,9 @@ async function loadResourcesAsync() {
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
-      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+      //'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
     }),
+    ...sounds
   ]);
 }
 

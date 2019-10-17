@@ -67,7 +67,8 @@ HomeScreen.navigationOptions = {
         <View style={{flex: 1,alignItems: 'center'}}>
           <Image 
             resizeMode="contain"
-            style={{width:250, height:100}}
+            /* style={{width:250, height:100}} */
+            style={{width:220}}
             source={require('../assets/images/logoHome2.png')}/>
         </View>
         
@@ -128,10 +129,11 @@ const styles = StyleSheet.create({
     width:'100%',
     height:50,
     marginTop:30,
-    marginBottom:30
+    marginBottom:30,
+    borderRadius:30
   },
   bigButtonsText:{
-    fontSize: 26,
+    fontSize: 24,
     textAlign:'center',
     lineHeight:50,
     color: '#fff'
