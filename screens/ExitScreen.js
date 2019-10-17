@@ -64,11 +64,12 @@ const styles = StyleSheet.create({
     backgroundColor:'#1C6BFF',
     width:'100%',
     height:50,
-    marginTop:30,
-    marginBottom:30
+    marginTop:15,
+    marginBottom:15,
+    borderRadius:30
   },
   bigButtonsText:{
-    fontSize: 26,
+    fontSize: 24,
     textAlign:'center',
     lineHeight:50,
     color: '#fff'

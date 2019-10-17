@@ -7,11 +7,15 @@ import {
     TouchableOpacity,
     Image } 
 from 'react-native';
+import Player from '../../components/Player';
+
 
 
 export default class PracticeScreen extends Component {
   constructor(props) {
+    
     super(props);
+  
     
     this.state = {
       inicio:1,
@@ -19,7 +23,8 @@ export default class PracticeScreen extends Component {
       boton:true
     };
   }
-
+  
+  
   startPractice= ()  => {
     var base=10;
     var numero = Math.floor(Math.random()*10)+1 + base; //numero entre 11 y 20
@@ -40,6 +45,7 @@ export default class PracticeScreen extends Component {
   decrementInicio = () => {  
     if(this.state.inicio == 1){
       clearInterval(this.clockCall);
+      Player.playSound('beep');
       this.start4Sec();
       //alert("inicio");
     } 
@@ -47,7 +53,6 @@ export default class PracticeScreen extends Component {
       this.setState((prevstate) => ({ inicio: prevstate.inicio-1 }));
     }
   };
-
 
   start4Sec = () => {
     this.clockCall = setInterval(() => {
@@ -57,7 +62,7 @@ export default class PracticeScreen extends Component {
   count4Sec = () => {  
     if(this.state.fourSec == 1){
       clearInterval(this.clockCall);
-      alert("fin");
+      Player.playSound('beep');
       this.setState({
         boton:true,
         fourSec:4,
@@ -69,7 +74,8 @@ export default class PracticeScreen extends Component {
     }
   };
 
-
+  
+  
 
   render() {
 
@@ -80,9 +86,10 @@ export default class PracticeScreen extends Component {
             style={styles.container}
             contentContainerStyle={styles.contentContainer}>
             <View style={styles.getStartedContainer}>
-                <Text style={styles.tituloSeccion}>
+                
+                {/* <Text style={styles.tituloSeccion}>
                     Modo práctica
-                </Text>
+                </Text> */}
 
                 <Text style={styles.whiteText}>
                     ¿Está listo?
@@ -115,9 +122,9 @@ export default class PracticeScreen extends Component {
             style={styles.container}
             contentContainerStyle={styles.contentContainer}>
             <View style={styles.getStartedContainer}>
-                <Text style={styles.tituloSeccion}>
+                {/* <Text style={styles.tituloSeccion}>
                     Modo práctica
-                </Text>
+                </Text> */}
 
                 <Text style={styles.whiteText}>
                     ¿Está listo?
