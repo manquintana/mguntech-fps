@@ -13,10 +13,7 @@ import Player from '../../components/Player';
 
 export default class PracticeScreen extends Component {
   constructor(props) {
-    
-    super(props);
-  
-    
+    super(props);    
     this.state = {
       inicio:1,
       fourSec:4,
@@ -59,7 +56,7 @@ export default class PracticeScreen extends Component {
       this.count4Sec();
     }, 1000);
   }
-  count4Sec = () => {  
+  count4Sec = () => {
     if(this.state.fourSec == 1){
       clearInterval(this.clockCall);
       Player.playSound('beep');
@@ -86,30 +83,26 @@ export default class PracticeScreen extends Component {
             style={styles.container}
             contentContainerStyle={styles.contentContainer}>
             <View style={styles.getStartedContainer}>
+              <Text style={styles.tituloSeccion}>
+                Ronda 1/1
+              </Text>
+              <Text style={styles.whiteText}>
+                ¿Está listo?
+              </Text>
                 
-                {/* <Text style={styles.tituloSeccion}>
-                    Modo práctica
-                </Text> */}
-
-                <Text style={styles.whiteText}>
-                    ¿Está listo?
-                </Text>
-                
-                 <TouchableOpacity
+              <TouchableOpacity
                 style={styles.extraBigButtons}
                 onPress={this.startPractice}
                 >
-                    <Text style={styles.extraBigButtonsText}>
-                        LISTO
-                    </Text>
-                </TouchableOpacity>
-
-                <Text style={{color:'#fff'}}>
-                  inicio: { this.state.inicio } / / 
-                  4sec: { this.state.fourSec }
+                <Text style={styles.extraBigButtonsText}>
+                  LISTO
                 </Text>
-                
-                
+              </TouchableOpacity>
+
+              {/* <Text style={{color:'#fff'}}>
+                inicio: { this.state.inicio } / / 
+                4sec: { this.state.fourSec }
+              </Text> */}
             </View>
             </ScrollView>
         </View>
@@ -122,10 +115,9 @@ export default class PracticeScreen extends Component {
             style={styles.container}
             contentContainerStyle={styles.contentContainer}>
             <View style={styles.getStartedContainer}>
-                {/* <Text style={styles.tituloSeccion}>
-                    Modo práctica
-                </Text> */}
-
+                <Text style={styles.tituloSeccion}>
+                  Ronda 1/1
+                </Text>
                 <Text style={styles.whiteText}>
                     ¿Está listo?
                 </Text>
@@ -135,15 +127,15 @@ export default class PracticeScreen extends Component {
                 style={styles.extraBigButtonsDisabled}
                 onPress={this.startPractice}
                 >
-                    <Text style={styles.extraBigButtonsTextDisabled}>
-                      LISTO
-                    </Text>
+                  <Text style={styles.extraBigButtonsTextDisabled}>
+                    LISTO
+                  </Text>
                 </TouchableOpacity>
 
-                <Text style={{color:'#fff'}}>
+                {/* <Text style={{color:'#fff'}}>
                   inicio: { this.state.inicio }  / / 
                   4sec: { this.state.fourSec }
-                </Text>
+                </Text> */}
                 
                 
             </View>
