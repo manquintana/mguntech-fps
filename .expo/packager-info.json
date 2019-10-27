@@ -1,9 +1,9 @@
 {
+  "packagerPort": 19001,
+  "packagerPid": 10972,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 8228,
   "expoServerNgrokUrl": "https://87-sdv.anonymous.fpsproject.exp.direct",
   "packagerNgrokUrl": "https://packager.87-sdv.anonymous.fpsproject.exp.direct",
-  "ngrokPid": 17516
+  "ngrokPid": 17876
 }

@@ -12,6 +12,10 @@ import {
 from 'react-native';
 
 
+import { Slider } from 'react-native-elements';
+
+
+
 export default class TournamentScreen extends Component {
   constructor(props) {
     super(props);    
@@ -23,7 +27,8 @@ export default class TournamentScreen extends Component {
       currentRound:8,
       points: [2,0,4,0,0,0,0,4],
       modalVisible:false,
-      finalizado:false
+      finalizado:false,
+      value:20
     };
   }
   
@@ -125,15 +130,22 @@ export default class TournamentScreen extends Component {
               transparent={false}
               visible={this.state.modalVisible}
             >
- 
               <View style={styles.container}>
-
                 <ScrollView
                   contentContainerStyle={styles.fiftyPixelMargins}>
                   
                     <Text style={styles.tituloSeccion}>
                       Cargar puntos de la ronda {this.state.currentRound}
                     </Text>
+
+                    <Slider
+                      maximumValue={100}
+                      minimumValue={0}
+                      step={1}
+                      value={this.state.value}
+                      onValueChange={value => this.setState({ value })}
+                    />
+                    <Text styles={{color:"#fff"}}>Value: {this.state.value}</Text>
 
                     <TouchableOpacity
                       style={styles.bigButtons}
