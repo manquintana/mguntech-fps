@@ -25,10 +25,14 @@ export default class TournamentScreen extends Component {
       boton:true,
       //extras for tournament mode
       currentRound:8,
-      points: [2,0,4,0,0,0,0,4],
+      points: [2,0,4,1,0,0,0,4],
       modalVisible:false,
       finalizado:false,
-      value:20
+      shot1:0,
+      shot2:0,
+      shot3:0,
+      shot4:0,
+      shot5:0,
     };
   }
   
@@ -137,15 +141,77 @@ export default class TournamentScreen extends Component {
                     <Text style={styles.tituloSeccion}>
                       Cargar puntos de la ronda {this.state.currentRound}
                     </Text>
+                    
+                    <View style={styles.sliderContainer}>
+                      <Text style={styles.slideText}> {this.state.shot1}</Text>
+                      <Slider
+                        step={1}
+                        minimumValue={0}
+                        maximumValue={10}
+                        width={200}
+                        thumbTintColor={"#fff"}
+                        minimumTrackTintColor={"#1C6BFF"}
+                        value={this.state.shot1}
+                        onValueChange={shot1 => this.setState({ shot1 })}
+                      />
+                    </View>
 
-                    <Slider
-                      maximumValue={100}
-                      minimumValue={0}
-                      step={1}
-                      value={this.state.value}
-                      onValueChange={value => this.setState({ value })}
-                    />
-                    <Text styles={{color:"#fff"}}>Value: {this.state.value}</Text>
+                    <View style={styles.sliderContainer}>
+                      <Text style={styles.slideText}> {this.state.shot2}</Text>
+                      <Slider
+                        step={1}
+                        minimumValue={0}
+                        maximumValue={10}
+                        width={200}
+                        thumbTintColor={"#fff"}
+                        minimumTrackTintColor={"#1C6BFF"}
+                        value={this.state.shot2}
+                        onValueChange={shot2 => this.setState({ shot2 })}
+                      />
+                    </View>
+
+                    <View style={styles.sliderContainer}>
+                      <Text style={styles.slideText}> {this.state.shot3}</Text>
+                      <Slider
+                        step={1}
+                        minimumValue={0}
+                        maximumValue={10}
+                        width={200}
+                        thumbTintColor={"#fff"}
+                        minimumTrackTintColor={"#1C6BFF"}
+                        value={this.state.shot3}
+                        onValueChange={shot3 => this.setState({ shot3 })}
+                      />
+                    </View>
+
+                    <View style={styles.sliderContainer}>
+                    <Text style={styles.slideText}> {this.state.shot4}</Text>
+                      <Slider
+                        step={1}
+                        minimumValue={0}
+                        maximumValue={10}
+                        width={200}
+                        thumbTintColor={"#fff"}
+                        minimumTrackTintColor={"#1C6BFF"}
+                        value={this.state.shot4}
+                        onValueChange={shot4 => this.setState({ shot4 })}
+                      />
+                    </View>
+
+                    <View style={styles.sliderContainer}>
+                      <Text style={styles.slideText}> {this.state.shot5}</Text>
+                      <Slider
+                        step={1}
+                        minimumValue={0}
+                        maximumValue={10}
+                        width={200}
+                        thumbTintColor={"#fff"}
+                        minimumTrackTintColor={"#1C6BFF"}
+                        value={this.state.shot5}
+                        onValueChange={shot5 => this.setState({ shot5 })}
+                      />
+                    </View>
+                    
 
                     <TouchableOpacity
                       style={styles.bigButtons}
@@ -185,8 +251,7 @@ export default class TournamentScreen extends Component {
                   </Text>
                 </View>
               </View>
-              
-                
+
                 <Text style={styles.whiteText}>
                   ¿Está listo?
                 </Text>
@@ -426,5 +491,16 @@ TournamentScreen.navigationOptions = {
     helpLinkText: {
       fontSize: 14,
       color: '#2e78b7',
+    },
+    sliderContainer: {
+      flexDirection: 'row', 
+      alignItems: 'center',
+      marginBottom:20
+    },
+    slideText: {
+      fontSize:18,
+      color:'#fff',
+      textAlign:'center',
+      marginRight:5
     },
 });
