@@ -24,18 +24,34 @@ export default class TournamentScreen extends Component {
       fourSec:4,
       boton:true,
       //extras for tournament mode
-      currentRound:8,
-      points: [2,0,4,1,0,0,0,4],
+      currentRound:7, //initial Round
+      points: [0,0,0,0,0,0,0,0], //array of points for each round
       modalVisible:false,
       finalizado:false,
-      shot1:0,
-      shot2:0,
+      shot1:0, //these are the five shots of each round
+      shot2:0, //after every round, the values are resetted
       shot3:0,
       shot4:0,
       shot5:0,
     };
   }
   
+  loadRoundPoints(i) {
+    
+    i=i-1 //index goes from 0 to 7
+    roundPoints= this.state.shot1+this.state.shot2+this.state.shot3+this.state.shot4+this.state.shot5
+    this.state.points[i] = roundPoints
+    this.state.shot1=0 //reset shot 1 to 5
+    this.state.shot2=0
+    this.state.shot3=0
+    this.state.shot4=0
+    this.state.shot5=0
+
+    /* console.log("numero de indice: " + i) */
+    console.log("puntos ronda: " + roundPoints)
+    console.log("array:" + this.state.points)
+  }
+
   incrementRound(){
     if (this.state.currentRound < 8){
       this.setState((prevstate) => ({ currentRound: prevstate.currentRound+1 }));
@@ -56,6 +72,7 @@ export default class TournamentScreen extends Component {
     });
     return totalPoints;
   }
+
   setModalVisible(visible) {
     this.setState({modalVisible: visible});  
   }
@@ -218,9 +235,11 @@ export default class TournamentScreen extends Component {
                       onPress={() => {
                         this.setModalVisible(!this.state.modalVisible);
                         if (this.state.currentRound < 8){
+                          this.loadRoundPoints(this.state.currentRound);
                           this.incrementRound();
                         }
                         else{
+                          this.loadRoundPoints(this.state.currentRound);
                           this.setState({finalizado:true});
                         }
                       }}
@@ -239,39 +258,33 @@ export default class TournamentScreen extends Component {
   
   
             <View style={styles.getStartedContainer}>
-                                
-              <View style={{}}>
-                <View style={{flexDirection: 'row', alignItems: 'center',}}>
-                  
-                  <Ionicons name="md-arrow-dropleft" size={32} style={{color:'#fff', marginRight: 30,}}
-                  onPress={() => { this.decrementRound() }}/>
-                
-                  <Text style={{textAlign:'center',fontSize: 20, color:'#fff'}}>
-                    Ronda {this.state.currentRound}/8
-                  </Text>
-                </View>
-              </View>
+          
+              <Text style={styles.tituloSeccion}>
+                <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
+                onPress={() => { this.decrementRound() }}/>  Ronda {this.state.currentRound}/8
+              </Text>
+              
 
-                <Text style={styles.whiteText}>
-                  ¿Está listo?
-                </Text>
+              <Text style={styles.whiteText}>
+                ¿Está listo?
+              </Text>
                   
-                <TouchableOpacity
-                  style={styles.extraBigButtons}
-                  onPress={this.startPractice}
-                  >
-                  <Text style={styles.extraBigButtonsText}>
-                    LISTO
-                  </Text>
-                </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.extraBigButtons}
+                onPress={this.startPractice}
+              >
+                <Text style={styles.extraBigButtonsText}>
+                  LISTO
+                </Text>
+              </TouchableOpacity>
                 
                 {/* <Text style={{color:'#fff'}}>
                   inicio: { this.state.inicio } / / 
                   4sec: { this.state.fourSec }
                 </Text> */}
-              </View>
+                </View>
               </ScrollView>
-          </View>
+            </View>
       );
       }
       else{
@@ -282,8 +295,10 @@ export default class TournamentScreen extends Component {
               contentContainerStyle={styles.contentContainer}>
               <View style={styles.getStartedContainer}>
                   <Text style={styles.tituloSeccion}>
-                    Ronda {this.state.currentRound}/8
+                    <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#0E3680', height:15}}
+                    /* onPress={() => { this.decrementRound() }} *//>  Ronda {this.state.currentRound}/8
                   </Text>
+
                   <Text style={styles.whiteText}>
                       ¿Está listo?
                   </Text>
@@ -311,6 +326,8 @@ export default class TournamentScreen extends Component {
       }  
     }
 
+
+    //termino la ronda 8, muestra resultados
     else{
 
       return (
@@ -320,7 +337,8 @@ export default class TournamentScreen extends Component {
             contentContainerStyle={styles.contentContainer}>
             <View style={styles.getStartedContainer}>
                 <Text style={styles.tituloSeccion}>
-                  Resultados
+                  <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
+                  onPress={() => { this.decrementRound() }}/>  Resultados
                 </Text>
                 
                 <TouchableOpacity
@@ -366,7 +384,7 @@ TournamentScreen.navigationOptions = {
       alignItems: 'center',
       fontSize: 20,
       color:'#fff',
-      lineHeight: 25,
+      //lineHeight: 25,
       textAlign: 'center',
       marginBottom:35,
       paddingBottom:10,
