@@ -43,7 +43,7 @@ export default function HomeScreen() {
       </ScrollView>
       
       <View style={styles.bottomView}>
-        <Text style={styles.whiteText}>FPS | v1.0.0-alpha</Text>
+        <Text style={styles.whiteText}>FPS | 1.0 beta</Text>
         <Text style={styles.whiteText}
           onPress={visitarWeb}>mguntech.com</Text>
       </View>

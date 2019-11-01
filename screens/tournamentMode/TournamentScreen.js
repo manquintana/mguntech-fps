@@ -24,10 +24,10 @@ export default class TournamentScreen extends Component {
       fourSec:4,
       boton:true,
       //extras for tournament mode
-      currentRound:7, //initial Round
+      currentRound:8, //initial Round
       points: [0,0,0,0,0,0,0,0], //array of points for each round
       modalVisible:false,
-      finalizado:false,
+      //finalizado:false,
       shot1:0, //these are the five shots of each round
       shot2:0, //after every round, the values are resetted
       shot3:0,
@@ -47,13 +47,12 @@ export default class TournamentScreen extends Component {
     this.state.shot4=0
     this.state.shot5=0
 
-    /* console.log("numero de indice: " + i) */
-    console.log("puntos ronda: " + roundPoints)
-    console.log("array:" + this.state.points)
+    /* console.log("puntos ronda: " + roundPoints)
+    console.log("array:" + this.state.points) */
   }
 
   incrementRound(){
-    if (this.state.currentRound < 8){
+    if (this.state.currentRound <= 8){
       this.setState((prevstate) => ({ currentRound: prevstate.currentRound+1 }));
     }
   }
@@ -136,7 +135,7 @@ export default class TournamentScreen extends Component {
 
 
   render() {
-    if (!this.state.finalizado){
+    if (this.state.currentRound<9){ //9 indica que ya esta en resultados
       if (this.state.boton){
         return (
   
@@ -234,13 +233,9 @@ export default class TournamentScreen extends Component {
                       style={styles.bigButtons}
                       onPress={() => {
                         this.setModalVisible(!this.state.modalVisible);
-                        if (this.state.currentRound < 8){
+                        if (this.state.currentRound < 9){
                           this.loadRoundPoints(this.state.currentRound);
                           this.incrementRound();
-                        }
-                        else{
-                          this.loadRoundPoints(this.state.currentRound);
-                          this.setState({finalizado:true});
                         }
                       }}
                     >
@@ -330,33 +325,70 @@ export default class TournamentScreen extends Component {
     //termino la ronda 8, muestra resultados
     else{
 
-      return (
-        <View style={styles.container}>
-            <ScrollView
-            style={styles.container}
-            contentContainerStyle={styles.contentContainer}>
-            <View style={styles.getStartedContainer}>
-                <Text style={styles.tituloSeccion}>
-                  <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
-                  onPress={() => { this.decrementRound() }}/>  Resultados
-                </Text>
-                
-                <TouchableOpacity
-                  disabled
-                  style={styles.extraBigButtonsDisabled}
-                  onPress={this.startPractice}
-                >
-                  <Text style={styles.extraBigButtonsTextScore}>
-                    {this.sumPoints()} / 400
-                    <Ionicons name="md-thumbs-up" size={32} style={{color:'#fff'}}/>
+      if (this.sumPoints() < 200){ //thumbs down
+        return (
+          <View style={styles.container}>
+              <ScrollView
+              style={styles.container}
+              contentContainerStyle={styles.contentContainer}>
+              <View style={styles.getStartedContainer}>
+                  <Text style={styles.tituloSeccion}>
+                    <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
+                    onPress={() => { this.decrementRound() }}/>  Resultados
                   </Text>
                   
-                </TouchableOpacity>
-
-            </View>
-            </ScrollView>
-        </View>
-      );
+                  <TouchableOpacity
+                    disabled
+                    style={styles.extraBigButtonsDisabled}
+                    onPress={this.startPractice}
+                  >
+                    <Text style={styles.extraBigButtonsTextScore}>
+                      {this.sumPoints()} / 400
+                    </Text>
+                    <Text style={styles.extraBigButtonsTextScore}>
+                      <Ionicons name="md-thumbs-down" size={40} style={{color:'#fff'}}/>
+                    </Text>
+                    
+                  </TouchableOpacity>
+                  
+              </View>
+              </ScrollView>
+          </View>
+        );
+      }
+      else{ //thumbs up
+        return (
+          <View style={styles.container}>
+              <ScrollView
+              style={styles.container}
+              contentContainerStyle={styles.contentContainer}>
+              <View style={styles.getStartedContainer}>
+                  <Text style={styles.tituloSeccion}>
+                    <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
+                    onPress={() => { this.decrementRound() }}/>  Resultados
+                  </Text>
+                  
+                  <TouchableOpacity
+                    disabled
+                    style={styles.extraBigButtonsDisabled}
+                    onPress={this.startPractice}
+                  >
+                    <Text style={styles.extraBigButtonsTextScore}>
+                      {this.sumPoints()} / 400
+                    </Text>
+                    <Text style={styles.extraBigButtonsTextScore}>
+                      <Ionicons name="md-thumbs-up" size={40} style={{color:'#fff'}}/>
+                    </Text>
+                    
+                  </TouchableOpacity>
+                  
+                  
+              </View>
+              </ScrollView>
+          </View>
+        );
+      }
+      
     }
     
 }
@@ -450,10 +482,12 @@ TournamentScreen.navigationOptions = {
       color: '#555'
     },
     extraBigButtonsTextScore:{
-      fontSize: 66,
+      //fontSize: 66,
+      fontSize:50,
       textAlign:'center',
       textAlignVertical:'center',
-      lineHeight:300,
+      lineHeight:60,
+      marginTop:60,
       color: '#fff'
     },
     whiteText: {
