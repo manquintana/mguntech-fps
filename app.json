@@ -24,12 +24,14 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android":{  //added for build of beta
+      "package": "com.mguntech.fps"
+    },
     "ios": {
+      "bundleIdentifier": "com.mguntech.fps",
       "supportsTablet": true
     }
-  },
-  "android":{  //added for build of beta
-    "package": "com.mguntech.fps"
   }
+  
  
 }
