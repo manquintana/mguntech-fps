@@ -23,8 +23,9 @@ export default class PracticeScreen extends Component {
   
   
   startPractice= ()  => {
-    var base=10;
-    var numero = Math.floor(Math.random()*10)+1 + base; //numero entre 11 y 20
+    var base=5;
+    var numero = Math.floor(Math.random()*5) + base; //numero entre 5 y 9
+    
     this.setState(
       {
         inicio:numero,

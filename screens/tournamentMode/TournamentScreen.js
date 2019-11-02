@@ -24,10 +24,9 @@ export default class TournamentScreen extends Component {
       fourSec:4,
       boton:true,
       //extras for tournament mode
-      currentRound:8, //initial Round
+      currentRound:1, //initial Round
       points: [0,0,0,0,0,0,0,0], //array of points for each round
       modalVisible:false,
-      //finalizado:false,
       shot1:0, //these are the five shots of each round
       shot2:0, //after every round, the values are resetted
       shot3:0,
@@ -77,9 +76,8 @@ export default class TournamentScreen extends Component {
   }
 
   startPractice= ()  => {
-    var base=10;
-    //var numero = Math.floor(Math.random()*10)+1 + base; //numero entre 11 y 20
-    var numero =3;
+    var base=5;
+    var numero = Math.floor(Math.random()*5) + base; //numero entre 5 y 9
     this.setState(
       {
         inicio:numero,

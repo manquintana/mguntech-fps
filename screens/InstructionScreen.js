@@ -20,18 +20,19 @@ export default function InstructionScreen() {
           Dispone de dos modos de operación: Práctica y Torneo.
         </Text>
         <Text style={styles.whiteText}>
-          - Modo Práctica: Una vez iniciada la práctica, la aplicación emitirá un sonido en un lapso aleatorio entre 10 y 20 segundos. 
+          - Modo Práctica: Una vez iniciada la práctica, la aplicación emitirá un sonido en un lapso aleatorio entre 5 y 9 segundos. 
           Esta será a señal para desenfundar su arma y comenzar su tanda de disparos. 
-          Exactamente 4 segundos luego del primer sonido, la aplicación emitirá un segundo sonido, que le indicará que finalizó su tanda de disparos. 
+          Exactamente 4 segundos luego del primer sonido, la aplicación emitirá un segundo sonido, que le indicará que finalizó su tanda de disparos.
           Tras la segunda señal, usted deberá descargar su arma adecuadamente y prepararse para una siguiente tanda de disparos o bien cesar la actividad.
-          A continuación podrá optar por iniciar una nueva práctica, bien regresar al menú principal para cambiar de modo.
+          A continuación podrá optar por iniciar una nueva práctica, o bien regresar al menú principal para cambiar de modo.
           Acate todas las ordenes del instructor a cargo del polígono, pues siempre tendrán prioridad sobre el uso de esta aplicación.
           
         </Text>
         <Text style={styles.whiteText}>
-          - Modo Torneo: La operatoria es similar al modo práctica, pero consiste en 8 rondas.
+          - Modo Torneo: La operatoria es similar al modo práctica, pero consiste en 8 rondas de 5 disparos cada una.
           Al finalizar cada ronda, el sistema le permitirá cargar su puntuación, y le mostrará los puntos de la ronda y los puntos totales acumulados.
-          Tras finalizar la última ronda de disparos, la aplicación le mostrará su puntuación final.
+          En caso de falla mecánica o de otro tipo, se podrá repetir la ronda anterior tocando el botón de "regresar" a la izquierda del número de ronda.
+          Tras finalizar la última ronda de disparos, la aplicación le mostrará su puntuación final y una evaluación de desempeño.
         </Text>
 
         <View style={styles.advertencia}>
@@ -54,7 +55,7 @@ export default function InstructionScreen() {
             Siempre pase el cable por dentro de su ropa y por el lado contrario al que porta su arma. 
           </Text>
           <Text style={styles.whiteTextBold}>
-            Mantenga su teléfono celular u otros dispositivos electrónicos lo más alejado posible de sus municiones cargadas o elementos de recarga. Las baterías suelen explotar y podrían ocasionar accidentes.
+            Mantenga su teléfono celular u otros dispositivos electrónicos lo más alejado posible de sus municiones cargadas o elementos de recarga. Las baterías pueden explotar y podrían ocasionar accidentes.
           </Text>
         </View>
         
