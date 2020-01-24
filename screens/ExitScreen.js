@@ -7,7 +7,12 @@ import {
   View,
   BackHandler
 } from 'react-native';
+import NavigationService from '../navigation/NavigationService';
 
+function exitAction() {
+  NavigationService.navigate('Home');
+  return BackHandler.exitApp();
+}
 
 export default function ExitScreen() {
   return (
@@ -23,7 +28,7 @@ export default function ExitScreen() {
           <TouchableOpacity
             style={styles.bigButtons}
             onPress ={
-              ()=>{return BackHandler.exitApp();}
+              ()=>{return exitAction()}
             }
           >
             <Text style={styles.bigButtonsText}>Salir</Text>

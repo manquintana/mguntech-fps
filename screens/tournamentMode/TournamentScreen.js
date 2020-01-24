@@ -78,6 +78,7 @@ export default class TournamentScreen extends Component {
   startPractice= ()  => {
     var base=5;
     var numero = Math.floor(Math.random()*5) + base; //numero entre 5 y 9
+    var numero = 5; //5 seg
     this.setState(
       {
         inicio:numero,

@@ -1,9 +1,8 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import {Text, View} from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
 import { Ionicons } from '@expo/vector-icons';
-
+import {Image} from 'react-native' ; 
 export default function InstructionScreen() {
   return (
     <ScrollView style={styles.container}>
@@ -14,13 +13,13 @@ export default function InstructionScreen() {
           Lea detalladamente todas las instrucciones antes de comenzar a utilizar esta aplicación en un polígono.
         </Text>
         <Text style={styles.whiteText}>
-          FPS (FBI PISTOL STAND-ALONE) es un software desarrollado para la práctica de FBI en polígonos que no dispongan de blancos automatizados.
+          FPS (FBI PISTOL STANDALONE) es un software desarrollado para la práctica de FBI en polígonos que no dispongan de blancos automatizados.
         </Text>
         <Text style={styles.whiteText}>
           Dispone de dos modos de operación: Práctica y Torneo.
         </Text>
         <Text style={styles.whiteText}>
-          - Modo Práctica: Una vez iniciada la práctica, la aplicación emitirá un sonido en un lapso aleatorio entre 5 y 9 segundos. 
+          - Modo Práctica: Una vez iniciada la práctica, la aplicación emitirá un sonido tras 5 segundos de haber presionado el botón 'LISTO'. 
           Esta será a señal para desenfundar su arma y comenzar su tanda de disparos. 
           Exactamente 4 segundos luego del primer sonido, la aplicación emitirá un segundo sonido, que le indicará que finalizó su tanda de disparos.
           Tras la segunda señal, usted deberá descargar su arma adecuadamente y prepararse para una siguiente tanda de disparos o bien cesar la actividad.
@@ -58,7 +57,17 @@ export default function InstructionScreen() {
             Mantenga su teléfono celular u otros dispositivos electrónicos lo más alejado posible de sus municiones cargadas o elementos de recarga. Las baterías pueden explotar y podrían ocasionar accidentes.
           </Text>
         </View>
-        
+
+        <Text style={styles.whiteTextBold}>
+          - Asegurese de utilizar el blanco adecuado para esta actividad (imagen extraida de BakerTargets.com):
+        </Text>
+        <Image style= {{  position: 'relative',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0}}
+          resizeMode = "contain"
+          source={require('../logos/target.png')} />
         <Text style={styles.whiteText}>
           Desarrollado por Ing. en Informática Manuel Alejandro Quintana.
         </Text>
