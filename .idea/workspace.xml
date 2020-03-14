@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a923e17-f464-4d3c-8389-7998d5b44887" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.expo/packager-info.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/packager-info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.expo/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/splash.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/ExitScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/ExitScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/InstructionScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/InstructionScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/LanguagesScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/LanguagesScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/MenuScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/MenuScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/practiceMode/PracticeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/practiceMode/PracticeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/tournamentMode/TournamentScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/tournamentMode/TournamentScreen.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="145" />
     <option name="y" value="-15" />
     <option name="width" value="1750" />
@@ -24,9 +35,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -58,7 +69,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2223393" />

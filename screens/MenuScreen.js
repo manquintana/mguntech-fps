@@ -24,8 +24,19 @@ export default class MenuScreen extends Component {
             contentContainerStyle={styles.fiftyPixelMargins}>
             
                 <Text style={styles.tituloSeccion}>
-                Seleccione opción
+                Select an option
                 </Text>
+
+
+                <TouchableOpacity
+                style={styles.bigButtons}
+                onPress ={
+                    ()=>{NavigationService.navigate('Volume')}
+                }
+                >
+                    <Text style={styles.bigButtonsText}>Sound Settings</Text>
+                </TouchableOpacity>
+
 
                 <TouchableOpacity
                 style={styles.bigButtons}
@@ -33,17 +44,20 @@ export default class MenuScreen extends Component {
                     ()=>{NavigationService.navigate('Instructions')}
                 }
                 >
-                    <Text style={styles.bigButtonsText}>Instrucciones</Text>
+                    <Text style={styles.bigButtonsText}>Instructions</Text>
                 </TouchableOpacity>
 
+                { /* 
                 <TouchableOpacity
                 style={styles.bigButtons}
                 onPress ={
                     ()=>{NavigationService.navigate('Languages')}
                 }
                 >
-                    <Text style={styles.bigButtonsText}>Idioma</Text>
+                    <Text style={styles.bigButtonsText}>Languages</Text>
                 </TouchableOpacity>
+                */ }
+
 
                 <TouchableOpacity
                 style={styles.bigButtons}
@@ -51,7 +65,7 @@ export default class MenuScreen extends Component {
                     ()=>{NavigationService.navigate('Home')}
                 }
                 >
-                    <Text style={styles.bigButtonsText}>Volver al Inicio</Text>
+                    <Text style={styles.bigButtonsText}>Back to Home</Text>
                 </TouchableOpacity>
 
 
@@ -61,7 +75,7 @@ export default class MenuScreen extends Component {
                     ()=>{NavigationService.navigate('Exit')}
                 }
                 >
-                    <Text style={styles.bigButtonsText}>Salir</Text>
+                    <Text style={styles.bigButtonsText}>Exit</Text>
                 </TouchableOpacity>
                 
             </ScrollView>
@@ -75,7 +89,7 @@ export default class MenuScreen extends Component {
 
 
 MenuScreen.navigationOptions = {
-    title: 'FPS - Menú',
+    title: 'FPS - Menu',
     headerStyle: {
       backgroundColor: '#071B40',
       height:80

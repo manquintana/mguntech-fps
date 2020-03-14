@@ -16,6 +16,7 @@ import ExitScreen from './screens/ExitScreen';
 import LanguageScreen from './screens/LanguagesScreen';
 import InstructionScreen from './screens/InstructionScreen';
 import MenuScreen from './screens/MenuScreen';
+import VolumeScreen from './screens/VolumeScreen';
 
 import soundLibrary from './constants/SoundLibrary';
 import Player from './components/Player';
@@ -28,6 +29,7 @@ const TopLevelNavigator = createStackNavigator({
   Languages: LanguageScreen,
   Instructions: InstructionScreen,
   Menu: MenuScreen,
+  Volume: VolumeScreen
 },
 /* {
   initialRouteName: Home,
@@ -70,6 +72,8 @@ async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
       require('./assets/images/logoHome2.png'),
+      require('./assets/images/weblink.png'),
+      require('./assets/sounds/beep.mp3'),
       //require('./assets/images/robot-prod.png'),
     ]),
     Font.loadAsync({

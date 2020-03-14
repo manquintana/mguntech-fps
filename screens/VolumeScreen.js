@@ -1,44 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  BackHandler
+  View
 } from 'react-native';
-import NavigationService from '../navigation/NavigationService';
+import Player from '../components/Player';
+import { Ionicons } from '@expo/vector-icons'; 
 
-export default function ExitScreen() {
-  return (
+export default class VolumeScreen extends Component {
+  constructor(props) {
+    super(props);    
+  }
+
+  checkVolume = () => {  
+    Player.playSound('beep');
+  } 
+
+  render() {
+    return (
     <View style={styles.container}>
 
       <ScrollView
         contentContainerStyle={styles.fiftyPixelMargins}>
-       
+
           <Text style={styles.tituloSeccion}>
-            Are you sure you want to exit?
+            Check volume
           </Text>
   
           <TouchableOpacity
             style={styles.bigButtons}
-            onPress ={salir}
+            onPress ={this.checkVolume}
           >
-            <Text style={styles.bigButtonsText}>Confirm</Text>
+            <Text style={styles.bigButtonsText}> <Ionicons name="md-volume-high" size={40} style={{color:'#fff'}}/> </Text>
           </TouchableOpacity>
+
           
       </ScrollView>
     </View>
-  );
+    )
+  }
 }
 
-function salir(){
-  NavigationService.navigate('Home')
-  BackHandler.exitApp()
-}
-
-ExitScreen.navigationOptions = {
-  title: 'FPS - Exit',
+VolumeScreen.navigationOptions = {
+  title: 'FPS - Sound settings',
   headerStyle: {
     backgroundColor: '#071B40',
     height:80

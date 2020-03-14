@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import {Text, View} from 'react-native';
+import {Text, View, Image, Linking, TouchableOpacity} from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -11,62 +11,64 @@ export default function InstructionScreen() {
       
       <View style={styles.ninetypercent}>
         <Text style={styles.whiteTextBold}>
-          Lea detalladamente todas las instrucciones antes de comenzar a utilizar esta aplicación en un polígono.
+          Please read the instructions carefully before starting to use the app in the shooting range.
         </Text>
         <Text style={styles.whiteText}>
-          FPS (FBI PISTOL STAND-ALONE) es un software desarrollado para la práctica de FBI en polígonos que no dispongan de blancos automatizados.
+          FPS (FBI PISTOL STAND-ALONE) is a soft developed to allow the FBI practice, in shooting ranges without automatic target systems.
         </Text>
         <Text style={styles.whiteText}>
-          Dispone de dos modos de operación: Práctica y Torneo.
+          There are two operation modes availables: Practice & Tournament.
         </Text>
         <Text style={styles.whiteText}>
-          - Modo Práctica: Una vez iniciada la práctica, la aplicación emitirá un sonido en un lapso aleatorio entre 5 y 9 segundos. 
-          Esta será a señal para desenfundar su arma y comenzar su tanda de disparos. 
-          Exactamente 4 segundos luego del primer sonido, la aplicación emitirá un segundo sonido, que le indicará que finalizó su tanda de disparos.
-          Tras la segunda señal, usted deberá descargar su arma adecuadamente y prepararse para una siguiente tanda de disparos o bien cesar la actividad.
-          A continuación podrá optar por iniciar una nueva práctica, o bien regresar al menú principal para cambiar de modo.
-          Acate todas las ordenes del instructor a cargo del polígono, pues siempre tendrán prioridad sobre el uso de esta aplicación.
+          - Practice Mode: Once initialized this mode, the app will 'beep' after 5 seconds.
+          This is the signal to unsheathe your weapon and start your shooting round.
+          Exactly 4 seconds after the first 'beep', the app will 'beep' again, pointing out the end of the shooting round.
+          After that, you may unload correctly your weapon and get prepared for another round or stop the activity.
+          You must always follow the instructor orders, as he is always most important than this app.
           
         </Text>
         <Text style={styles.whiteText}>
-          - Modo Torneo: La operatoria es similar al modo práctica, pero consiste en 8 rondas de 5 disparos cada una.
-          Al finalizar cada ronda, el sistema le permitirá cargar su puntuación, y le mostrará los puntos de la ronda y los puntos totales acumulados.
-          En caso de falla mecánica o de otro tipo, se podrá repetir la ronda anterior tocando el botón de "regresar" a la izquierda del número de ronda.
-          Tras finalizar la última ronda de disparos, la aplicación le mostrará su puntuación final y una evaluación de desempeño.
+          - Tournament Mode: It is similar to Practice Mode, but it consist in 8 rounds of 5 shoots each one.
+          After each round, you can load your current points.
+          If there was any mechanic or another kind of failure, you can repeat the last round by touching the 'Back button' on the left of round number.
+          At the end of the last round, the app will calculate your total points and performance.
         </Text>
 
         <View style={styles.advertencia}>
           <Text style={styles.whiteTextBold}>
             <Ionicons name="md-alert" size={18} color="#fff" />
-            Advertencias de seguridad
+            Security Warnings!
           </Text>
           <Text style={styles.whiteText}>
-            Queda terminantemente prohibido el uso de esta aplicación si en el polígono se prohibiera el uso de celulares. 
+            The use of this app is strictly prohibited if cellphones aren't allowed on the shooting range.
           </Text>
           <Text style={styles.whiteText}>
-            Nunca ponga en riesgo su seguridad ni la de terceros; Si Ud. considera que el celular le es una distracción, NO utilice esta aplicación.
+            Your safety and third parties safety are always first; DO NOT use this application if the cellphone is a distraction for you.
           </Text>
           <Text style={styles.whiteText}>
-            Si el instructor a cargo del polígono le prohibe usar su celular, NO utilice esta aplicación.
-          </Text>
-          <Text style={styles.whiteText}>
-            SIEMPRE utilice auriculares, los sonidos de la aplicación pueden confundir a otros tiradores. 
-            En caso de no usar auriculares inalámbricos, preste especial atención al cable de los mismos. 
-            Siempre pase el cable por dentro de su ropa y por el lado contrario al que porta su arma. 
+            You must ALWAYS use earphones, as the sounds can distract other shooters.
+            In case of not wearing wireless headphones, pay special attention to the cables.
           </Text>
           <Text style={styles.whiteTextBold}>
-            Mantenga su teléfono celular u otros dispositivos electrónicos lo más alejado posible de sus municiones cargadas o elementos de recarga. Las baterías pueden explotar y podrían ocasionar accidentes.
+            Always keep your cellphone or other electronic devices as far as possible from ammunition or reloading tools.
+            Batteries can explode.
           </Text>
         </View>
         
         <Text style={styles.whiteText}>
-          Desarrollado por Ing. en Informática Manuel Alejandro Quintana.
+          Developed by Ing. Lic. Manuel Alejandro Quintana.
         </Text>
+        <View style={{flex: 1,alignItems: 'center'}}>
+          <TouchableOpacity onPress={visitarWeb}>
+            <Image
+            resizeMode="contain"
+            style={{width:100}}
+            source={require('../assets/images/weblink.png')}
+            />
+          </TouchableOpacity>
+        </View>
         <Text style={styles.whiteText}>
-          mguntech.com
-        </Text>
-        <Text style={styles.whiteText}>
-          2019
+          2020
         </Text>
           
         
@@ -77,8 +79,12 @@ export default function InstructionScreen() {
   );
 }
 
+function visitarWeb() {
+  Linking.openURL('https://mguntech.com');
+}
+
 InstructionScreen.navigationOptions = {
-  title: 'FPS - Modo de uso',
+  title: 'FPS - How to',
   headerStyle: {
     backgroundColor: '#071B40',
     height:80

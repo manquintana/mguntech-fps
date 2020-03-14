@@ -1,9 +1,9 @@
 {
   "packagerPort": 19001,
-  "packagerPid": 3849,
+  "packagerPid": 13548,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://87-sdv.jevi92034.fpsprojectenglish.exp.direct",
+  "packagerNgrokUrl": "https://packager.87-sdv.jevi92034.fpsprojectenglish.exp.direct",
+  "ngrokPid": 12480
 }
