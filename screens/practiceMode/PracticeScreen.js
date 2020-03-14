@@ -23,9 +23,9 @@ export default class PracticeScreen extends Component {
   
   
   startPractice= ()  => {
-    var base=5;
-    var numero = Math.floor(Math.random()*5) + base; //numero entre 5 y 9
-    
+    //var base=5;
+    //var numero = Math.floor(Math.random()*5) + base; // Random between 5 and 9
+    var numero = 5 // 5 sec
     this.setState(
       {
         inicio:numero,
@@ -85,10 +85,10 @@ export default class PracticeScreen extends Component {
             contentContainerStyle={styles.contentContainer}>
             <View style={styles.getStartedContainer}>
               <Text style={styles.tituloSeccion}>
-                Ronda 1/1
+                Round 1/1
               </Text>
               <Text style={styles.whiteText}>
-                ¿Está listo?
+                Are you ready?
               </Text>
                 
               <TouchableOpacity
@@ -96,7 +96,7 @@ export default class PracticeScreen extends Component {
                 onPress={this.startPractice}
                 >
                 <Text style={styles.extraBigButtonsText}>
-                  LISTO
+                  READY
                 </Text>
               </TouchableOpacity>
 
@@ -117,10 +117,10 @@ export default class PracticeScreen extends Component {
             contentContainerStyle={styles.contentContainer}>
             <View style={styles.getStartedContainer}>
                 <Text style={styles.tituloSeccion}>
-                  Ronda 1/1
+                  Round 1/1
                 </Text>
                 <Text style={styles.whiteText}>
-                    ¿Está listo?
+                    Are you ready?
                 </Text>
                 
                 <TouchableOpacity
@@ -129,7 +129,7 @@ export default class PracticeScreen extends Component {
                 onPress={this.startPractice}
                 >
                   <Text style={styles.extraBigButtonsTextDisabled}>
-                    LISTO
+                    READY
                   </Text>
                 </TouchableOpacity>
 
@@ -148,7 +148,7 @@ export default class PracticeScreen extends Component {
   }
 }
 PracticeScreen.navigationOptions = {
-  title: 'FPS - Modo Práctica',
+  title: 'FPS - Practice Mode',
   headerStyle: {
     backgroundColor: '#071B40',
     height:80

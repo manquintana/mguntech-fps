@@ -23,31 +23,37 @@ export default function HomeScreen() {
         contentContainerStyle={styles.fiftyPixelMargins}>
         
           <Text style={styles.tituloSeccion}>
-            Seleccione modo
+            Select mode
           </Text>
   
           <TouchableOpacity
             style={styles.bigButtons}
             onPress={startPracticeMode}
           >
-            <Text style={styles.bigButtonsText}>PRÁCTICA</Text>
+            <Text style={styles.bigButtonsText}>PRACTICE</Text>
           </TouchableOpacity>
           
           <TouchableOpacity
             style={styles.bigButtons}
             onPress={startTournamentMode}
           >
-            <Text style={styles.bigButtonsText}>TORNEO</Text>
+            <Text style={styles.bigButtonsText}>TOURNAMENT</Text>
           </TouchableOpacity>
 
       </ScrollView>
-      
-      <View style={styles.bottomView}>
-        <Text style={styles.whiteText}>FPS | v0.1 (beta release)</Text>
-        <Text style={styles.whiteText}
-          onPress={visitarWeb}>mguntech.com</Text>
-      </View>
 
+      <View style={{flex: 1,alignItems: 'center'}}>
+        <TouchableOpacity onPress={visitarWeb}>
+          <Image
+            resizeMode="contain"
+            style={{width:160}}
+            source={require('../assets/images/weblink.png')}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.bottomView}>
+        <Text style={styles.whiteText}> FPS | v1.0</Text>
+      </View>
     </View>
   );
 }
@@ -103,7 +109,7 @@ function abrirMenu(){
 }
 
 function visitarWeb() {
-  Linking.openURL('https://google.com');
+  Linking.openURL('https://mguntech.com');
 }
 
 

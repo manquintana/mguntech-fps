@@ -76,8 +76,9 @@ export default class TournamentScreen extends Component {
   }
 
   startPractice= ()  => {
-    var base=5;
-    var numero = Math.floor(Math.random()*5) + base; //numero entre 5 y 9
+    //var base=5;
+    //var numero = Math.floor(Math.random()*5) + base; // Random between 5 and 9
+    var numero = 5 // 5 sec
     this.setState(
       {
         inicio:numero,
@@ -153,7 +154,7 @@ export default class TournamentScreen extends Component {
                   contentContainerStyle={styles.fiftyPixelMargins}>
                   
                     <Text style={styles.tituloSeccion}>
-                      Cargar puntos de la ronda {this.state.currentRound}
+                      Load points from round # {this.state.currentRound}
                     </Text>
                     
                     <View style={styles.sliderContainer}>
@@ -237,7 +238,7 @@ export default class TournamentScreen extends Component {
                         }
                       }}
                     >
-                      <Text style={styles.bigButtonsText}>Guardar puntos</Text>
+                      <Text style={styles.bigButtonsText}>Save points</Text>
                     </TouchableOpacity>
                     
 
@@ -254,12 +255,12 @@ export default class TournamentScreen extends Component {
           
               <Text style={styles.tituloSeccion}>
                 <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
-                onPress={() => { this.decrementRound() }}/>  Ronda {this.state.currentRound}/8
+                onPress={() => { this.decrementRound() }}/>  Round {this.state.currentRound}/8
               </Text>
               
 
               <Text style={styles.whiteText}>
-                ¿Está listo?
+                Are you ready?
               </Text>
                   
               <TouchableOpacity
@@ -267,7 +268,7 @@ export default class TournamentScreen extends Component {
                 onPress={this.startPractice}
               >
                 <Text style={styles.extraBigButtonsText}>
-                  LISTO
+                  READY
                 </Text>
               </TouchableOpacity>
                 
@@ -289,11 +290,11 @@ export default class TournamentScreen extends Component {
               <View style={styles.getStartedContainer}>
                   <Text style={styles.tituloSeccion}>
                     <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#0E3680', height:15}}
-                    /* onPress={() => { this.decrementRound() }} *//>  Ronda {this.state.currentRound}/8
+                    /* onPress={() => { this.decrementRound() }} *//>  Round {this.state.currentRound}/8
                   </Text>
 
                   <Text style={styles.whiteText}>
-                      ¿Está listo?
+                      Are you ready?
                   </Text>
                   
                   <TouchableOpacity
@@ -302,7 +303,7 @@ export default class TournamentScreen extends Component {
                   onPress={this.startPractice}
                   >
                     <Text style={styles.extraBigButtonsTextDisabled}>
-                      LISTO
+                      READY
                     </Text>
                   </TouchableOpacity>
   
@@ -332,7 +333,7 @@ export default class TournamentScreen extends Component {
               <View style={styles.getStartedContainer}>
                   <Text style={styles.tituloSeccion}>
                     <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
-                    onPress={() => { this.decrementRound() }}/>  Resultados
+                    onPress={() => { this.decrementRound() }}/>  Your results
                   </Text>
                   
                   <TouchableOpacity
@@ -363,7 +364,7 @@ export default class TournamentScreen extends Component {
               <View style={styles.getStartedContainer}>
                   <Text style={styles.tituloSeccion}>
                     <Ionicons name="md-arrow-dropleft" size={33} style={{color:'#fff', /* backgroundColor:'red',  */height:15}}
-                    onPress={() => { this.decrementRound() }}/>  Resultados
+                    onPress={() => { this.decrementRound() }}/>  Your results
                   </Text>
                   
                   <TouchableOpacity
@@ -393,7 +394,7 @@ export default class TournamentScreen extends Component {
 }
 
 TournamentScreen.navigationOptions = {
-    title: 'FPS - Modo Torneo',
+    title: 'FPS - Tournament Mode',
     headerStyle: {
       backgroundColor: '#071B40',
       height:80

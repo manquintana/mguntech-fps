@@ -17,7 +17,7 @@ export default function LanguageScreen() {
         contentContainerStyle={styles.fiftyPixelMargins}>
 
           <Text style={styles.tituloSeccion}>
-            Seleccione idioma
+            Select language
           </Text>
   
           <TouchableOpacity
@@ -33,7 +33,7 @@ export default function LanguageScreen() {
           <TouchableOpacity
             style={styles.bigButtons}
             onPress ={
-              ()=>{return alert("Aún no se implementó la version en inglés");}
+              ()=>{return alert("English version not implemented yet");}
             }
           >
             <Text style={styles.bigButtonsText}>English</Text>
@@ -43,7 +43,7 @@ export default function LanguageScreen() {
           <TouchableOpacity
             style={styles.bigButtons}
             onPress ={
-              ()=>{return alert("Aún no se implementó la version en alemán");}
+              ()=>{return alert("German version not implemented yet");}
             }
           >
             <Text style={styles.bigButtonsText}>Deutsch</Text>
@@ -55,7 +55,7 @@ export default function LanguageScreen() {
 }
 
 LanguageScreen.navigationOptions = {
-  title: 'FPS - Idioma',
+  title: 'FPS - Languages',
   headerStyle: {
     backgroundColor: '#071B40',
     height:80
