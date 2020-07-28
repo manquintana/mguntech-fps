@@ -26,7 +26,7 @@
     ],
     "android":{  //added for build of beta
       "package": "com.mguntech.fps",
-      "versionCode": 2
+      "versionCode": 4
     },
     "ios": {
       "bundleIdentifier": "com.mguntech.fps",

@@ -42,7 +42,6 @@ const AppContainer = createAppContainer(TopLevelNavigator);
 export default function App(props) {
 
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-  
 
     if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (
@@ -74,6 +73,7 @@ async function loadResourcesAsync() {
       require('./assets/images/logoHome2.png'),
       require('./assets/images/weblink.png'),
       require('./assets/sounds/beep.mp3'),
+
       //require('./assets/images/robot-prod.png'),
     ]),
     Font.loadAsync({
@@ -96,8 +96,6 @@ function handleLoadingError(error) {
 function handleFinishLoading(setLoadingComplete) {
   setLoadingComplete(true);
 }
-
-
 
 
 const styles = StyleSheet.create({

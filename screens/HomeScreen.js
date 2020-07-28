@@ -1,4 +1,3 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   Image,
@@ -7,13 +6,14 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Linking,
-  Button
+  Linking
 } from 'react-native';
 
 
 import NavigationService from '../navigation/NavigationService';
 import { Ionicons } from '@expo/vector-icons';
+
+
 
 export default function HomeScreen() {
   return (
@@ -25,7 +25,7 @@ export default function HomeScreen() {
           <Text style={styles.tituloSeccion}>
             Select mode
           </Text>
-  
+          
           <TouchableOpacity
             style={styles.bigButtons}
             onPress={startPracticeMode}
@@ -51,12 +51,10 @@ export default function HomeScreen() {
           />
         </TouchableOpacity>
       </View>
-      <View style={styles.bottomView}>
-        <Text style={styles.whiteText}> FPS | v1.0</Text>
-      </View>
     </View>
   );
 }
+
 
 HomeScreen.navigationOptions = {
   

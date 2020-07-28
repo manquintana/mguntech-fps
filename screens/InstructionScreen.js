@@ -46,12 +46,12 @@ export default function InstructionScreen() {
             Your safety and third parties safety are always first; DO NOT use this application if the cellphone is a distraction for you.
           </Text>
           <Text style={styles.whiteText}>
-            You must ALWAYS use earphones, as the sounds can distract other shooters.
+            You must ALWAYS wear earphones, as the sounds can distract other shooters.
             In case of not wearing wireless headphones, pay special attention to the cables.
           </Text>
           <Text style={styles.whiteTextBold}>
             Always keep your cellphone or other electronic devices as far as possible from ammunition or reloading tools.
-            Batteries can explode.
+            Batteries could explode.
           </Text>
         </View>
         
