@@ -5,7 +5,7 @@ import {
     StyleSheet,
     ScrollView,
     TouchableOpacity,
-    Image } 
+    Image }
 from 'react-native';
 import Player from '../../components/Player';
 
@@ -19,6 +19,7 @@ export default class PracticeScreen extends Component {
       fourSec:4,
       boton:true
     };
+    Player.playSound('beep');
   }
   
   
