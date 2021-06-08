@@ -33,6 +33,7 @@ export default class TournamentScreen extends Component {
       shot4:0,
       shot5:0,
     };
+    Player.playSound('beep');
   }
   
   loadRoundPoints(i) {

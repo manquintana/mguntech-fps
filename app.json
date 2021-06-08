@@ -2,9 +2,8 @@
   "expo": {
     "name": "FPS",
     "slug": "fpsProject",
-    "description": "FPS - FBI PISTOL STANDALONE is an FBI Pistol Simulator", //added for build of beta
+    "description": "FPS - FBI PISTOL STANDALONE is an FBI Pistol Simulator",
     "privacy": "public",
-    "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
       "android",
@@ -24,7 +23,7 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "android":{  //added for build of beta
+    "android": {
       "package": "com.mguntech.fps",
       "versionCode": 4
     },
@@ -33,6 +32,4 @@
       "supportsTablet": true
     }
   }
-  
- 
 }
