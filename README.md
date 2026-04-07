@@ -16,7 +16,10 @@ Note: This app is no longer maintained in Google Playstore, but feel free to bui
 - Expo CLI (`npm install -g expo-cli`)
 - Android Studio (for mobile emulation)
 
-### Run the project
+### Run the project or build your own APK
 
-```bash
-expo start
+Test locally: `expo start`
+
+Build APK: `expo build:android`
+
+
