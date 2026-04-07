@@ -6,10 +6,11 @@ The application allows users to train and practice shooting scenarios in a contr
 
 Note: This app is no longer maintained in Google Playstore, but feel free to build your own. All required source code is in here :)
 
+<p>
 <img src="extra-files/playstore_images/screenshots/1.png" width="33%"/>
 <img src="extra-files/playstore_images/screenshots/2.png" width="33%"/>
 <img src="extra-files/playstore_images/screenshots/3.png" width="33%"/>
-
+</p>
 
 ## 🚀 Getting Started
 
